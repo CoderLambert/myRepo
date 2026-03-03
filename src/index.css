@@ -1,121 +1,126 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* ============================================
    暗黑色时尚 UI 设计系统
-   基于 TailwindCSS + shadcn/ui
+   基于 TailwindCSS v4 + shadcn/ui
    ============================================ */
 
+/* 定义主题变量 */
+@theme {
+  /* 基础颜色 - 暗黑色主题 */
+  --color-background: hsl(240 10% 4%);
+  --color-foreground: hsl(0 0% 98%);
+
+  /* 表面层 */
+  --color-surface-1: hsl(240 8% 7%);
+  --color-surface-2: hsl(240 6% 11%);
+  --color-surface-3: hsl(240 5% 16%);
+
+  /* 卡片 */
+  --color-card: hsl(240 8% 7%);
+  --color-card-foreground: hsl(0 0% 98%);
+
+  /* 主色 - 紫色系 */
+  --color-primary-50: hsl(250 95% 97%);
+  --color-primary-100: hsl(251 92% 95%);
+  --color-primary-200: hsl(252 88% 91%);
+  --color-primary-300: hsl(252 82% 85%);
+  --color-primary-400: hsl(256 86% 77%);
+  --color-primary-500: hsl(255 87% 70%);
+  --color-primary-600: hsl(258 87% 61%);
+  --color-primary-700: hsl(262 71% 53%);
+  --color-primary-800: hsl(265 68% 44%);
+  --color-primary-900: hsl(268 65% 35%);
+  --color-primary: hsl(255 87% 70%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  /* 次要色 */
+  --color-secondary: hsl(240 6% 16%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+
+  /* 强调色 */
+  --color-accent: hsl(245 72% 65%);
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  /* Muted 色调 */
+  --color-muted: hsl(240 5% 16%);
+  --color-muted-foreground: hsl(240 4% 64%);
+
+  /* 功能色 */
+  --color-success: hsl(152 76% 47%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-warning: hsl(38 92% 56%);
+  --color-warning-foreground: hsl(0 0% 100%);
+  --color-destructive: hsl(350 86% 61%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-error: hsl(350 86% 61%);
+  --color-error-foreground: hsl(0 0% 100%);
+  --color-info: hsl(199 89% 54%);
+  --color-info-foreground: hsl(0 0% 100%);
+
+  /* 边框和输入 */
+  --color-border: hsl(240 5% 20%);
+  --color-input: hsl(240 5% 16%);
+  --color-ring: hsl(255 87% 70%);
+
+  /* 字体 */
+  --font-sans: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* 圆角 */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* 动画时间 */
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+
+  /* 缓动函数 */
+  --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* CSS 变量层 - 用于组件引用 */
 @layer base {
   :root {
-    /* ===== 基础颜色 - 暗黑色主题 ===== */
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
-
-    /* 表面层 - 多层次深色背景 */
+    /* 表面层 */
     --surface-1: 240 8% 7%;
     --surface-2: 240 6% 11%;
     --surface-3: 240 5% 16%;
 
-    /* 卡片和 popover */
-    --card: 240 8% 7%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 8% 7%;
-    --popover-foreground: 0 0% 98%;
-
-    /* ===== 主色 - 紫色系 ===== */
-    --primary-50: 250 95% 97%;
-    --primary-100: 251 92% 95%;
-    --primary-200: 252 88% 91%;
-    --primary-300: 252 82% 85%;
-    --primary-400: 256 86% 77%;
-    --primary-500: 255 87% 70%;
-    --primary-600: 258 87% 61%;
-    --primary-700: 262 71% 53%;
-    --primary-800: 265 68% 44%;
-    --primary-900: 268 65% 35%;
-    --primary: 255 87% 70%;
-    --primary-foreground: 0 0% 100%;
-
-    /* ===== 次要色 - 蓝紫色 ===== */
-    --secondary: 240 6% 16%;
-    --secondary-foreground: 0 0% 98%;
-
-    /* ===== 强调色 - 靛蓝色 ===== */
-    --accent: 245 72% 65%;
-    --accent-foreground: 0 0% 100%;
-
-    /* ===== Muted 色调 ===== */
-    --muted: 240 5% 16%;
-    --muted-foreground: 240 4% 64%;
-
-    /* ===== 功能色 ===== */
-    /* 成功 - 翡翠绿 */
-    --success: 152 76% 47%;
-    --success-foreground: 0 0% 100%;
-    --success-glow: 152 76% 47%;
-
-    /* 警告 - 琥珀色 */
-    --warning: 38 92% 56%;
-    --warning-foreground: 0 0% 100%;
-    --warning-glow: 38 92% 56%;
-
-    /* 错误/破坏性 - 玫瑰红 */
-    --destructive: 350 86% 61%;
-    --destructive-foreground: 0 0% 100%;
-    --error: 350 86% 61%;
-    --error-foreground: 0 0% 100%;
-    --error-glow: 350 86% 61%;
-
-    /* 信息 - 天空蓝 */
-    --info: 199 89% 54%;
-    --info-foreground: 0 0% 100%;
-    --info-glow: 199 89% 54%;
-
-    /* ===== 边框和输入 ===== */
-    --border: 240 5% 20%;
-    --input: 240 5% 16%;
-    --ring: 255 87% 70%;
-
-    /* ===== 发光效果颜色 ===== */
+    /* 发光效果 */
     --glow-primary: 255 87% 70%;
     --glow-success: 152 76% 47%;
     --glow-error: 350 86% 61%;
     --glow-warning: 38 92% 56%;
     --glow-info: 199 89% 54%;
 
-    /* ===== 圆角 ===== */
-    --radius: 0.75rem;
-
-    /* ===== 阴影 ===== */
+    /* 阴影 */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-
-    /* ===== 动画 ===== */
-    --duration-150: 150ms;
-    --duration-200: 200ms;
-    --duration-300: 300ms;
-    --duration-500: 500ms;
-    --duration-700: 700ms;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   html {
-    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     margin: 0;
     min-height: 100vh;
   }
@@ -142,20 +147,23 @@
   /* 选中文本 */
   ::selection {
     background: hsl(var(--primary) / 0.3);
-    color: hsl(var(--foreground));
+    color: hsl(var(--color-foreground));
   }
 }
 
 @layer components {
   /* ===== 卡片组件 ===== */
   .card {
-    @apply bg-surface-1 border border-border rounded-xl p-6;
-    transition: all var(--duration-300) cubic-bezier(0.215, 0.61, 0.355, 1);
+    background-color: hsl(var(--surface-1));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    transition: all var(--duration-300) var(--ease-out);
     box-shadow: var(--shadow-md);
   }
 
   .card:hover {
-    @apply border-border-hover;
+    border-color: hsl(240 5% 26%);
     box-shadow: var(--shadow-lg), 0 0 40px -10px hsl(var(--glow-primary) / 0.3);
     transform: translateY(-2px);
   }
@@ -187,21 +195,36 @@
 
   /* ===== 按钮组件 ===== */
   .btn {
-    @apply inline-flex items-center justify-center;
-    @apply font-medium transition-all;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
-    @apply disabled:pointer-events-none disabled:opacity-50;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    transition: all var(--duration-200) ease;
+    outline: none;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  .btn:disabled {
+    pointer-events: none;
+    opacity: 0.5;
   }
 
   .btn-primary {
-    @apply btn;
-    @apply bg-gradient-to-br from-primary-500 to-primary-600 text-white;
-    @apply rounded-lg px-5 py-2.5 text-sm;
+    composes: btn;
+    background: linear-gradient(135deg, hsl(var(--primary-500)), hsl(var(--primary-600)));
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
     box-shadow: 0 4px 14px -2px hsl(var(--glow-primary) / 0.5);
   }
 
   .btn-primary:hover {
-    @apply from-primary-400 to-primary-500;
+    background: linear-gradient(135deg, hsl(var(--primary-400)), hsl(var(--primary-500)));
     transform: translateY(-1px);
     box-shadow: 0 6px 20px -4px hsl(var(--glow-primary) / 0.6);
   }
@@ -211,27 +234,35 @@
   }
 
   .btn-secondary {
-    @apply btn;
-    @apply bg-surface-2 text-foreground border border-border;
-    @apply rounded-lg px-5 py-2.5 text-sm;
+    composes: btn;
+    background-color: hsl(var(--surface-2));
+    color: hsl(var(--color-foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-lg);
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
   }
 
   .btn-secondary:hover {
-    @apply bg-surface-3 border-border-hover;
+    background-color: hsl(var(--surface-3));
+    border-color: hsl(240 5% 26%);
   }
 
   .btn-ghost {
-    @apply btn;
-    @apply bg-transparent text-foreground;
-    @apply rounded-lg px-5 py-2.5 text-sm;
+    composes: btn;
+    background: transparent;
+    color: hsl(var(--color-foreground));
+    border-radius: var(--radius-lg);
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
   }
 
   .btn-ghost:hover {
-    @apply bg-surface-2;
+    background-color: hsl(var(--surface-2));
   }
 
   .btn-glow {
-    @apply btn-primary;
+    composes: btn-primary;
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
@@ -246,17 +277,24 @@
 
   /* ===== 输入框组件 ===== */
   .input {
-    @apply w-full px-4 py-2.5 text-sm;
-    @apply bg-surface-1 border border-border;
-    @apply rounded-lg text-foreground;
-    @apply placeholder:text-muted-foreground;
-    @apply transition-all duration-200;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+    width: 100%;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    background-color: hsl(var(--surface-1));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius-lg);
+    color: hsl(var(--color-foreground));
+    transition: all var(--duration-200);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 
+  .input::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+
   .input:focus {
-    @apply border-primary;
+    outline: none;
+    border-color: hsl(var(--primary));
     box-shadow:
       inset 0 1px 2px rgba(0, 0, 0, 0.3),
       0 0 0 3px hsl(var(--primary) / 0.15),
@@ -265,39 +303,54 @@
 
   /* ===== 徽章组件 ===== */
   .badge {
-    @apply inline-flex items-center;
-    @apply px-2.5 py-0.5 text-xs font-medium;
-    @apply rounded-full;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 9999px;
   }
 
   .badge-primary {
-    @apply badge;
-    @apply bg-primary/10 text-primary border border-primary/20;
+    composes: badge;
+    background-color: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.2);
   }
 
   .badge-success {
-    @apply badge;
-    @apply bg-success/10 text-success border border-success/20;
+    composes: badge;
+    background-color: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+    border: 1px solid hsl(var(--success) / 0.2);
   }
 
   .badge-warning {
-    @apply badge;
-    @apply bg-warning/10 text-warning border border-warning/20;
+    composes: badge;
+    background-color: hsl(var(--warning) / 0.1);
+    color: hsl(var(--warning));
+    border: 1px solid hsl(var(--warning) / 0.2);
   }
 
   .badge-error {
-    @apply badge;
-    @apply bg-error/10 text-error border border-error/20;
+    composes: badge;
+    background-color: hsl(var(--error) / 0.1);
+    color: hsl(var(--error));
+    border: 1px solid hsl(var(--error) / 0.2);
   }
 
   /* ===== 玻璃态效果 ===== */
   .glass {
-    @apply bg-surface-2/60 backdrop-blur-xl;
+    background-color: hsl(var(--surface-2) / 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid hsl(var(--border) / 0.5);
   }
 
   .glass-card {
-    @apply glass rounded-xl p-6;
+    composes: glass;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
     box-shadow: var(--shadow-md);
   }
 
@@ -309,21 +362,21 @@
         transparent 50%
       ),
       linear-gradient(180deg,
-        hsl(var(--background)) 0%,
+        hsl(var(--color-background)) 0%,
         hsl(var(--surface-1)) 100%
       );
   }
 
   /* ===== 文字渐变 ===== */
   .text-gradient {
-    @apply bg-gradient-to-br from-white via-white to-white/60;
+    background: linear-gradient(135deg, white, white, hsl(0 0% 100% / 0.6));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-primary {
-    @apply bg-gradient-to-br from-primary-300 via-primary to-primary-700;
+    background: linear-gradient(135deg, hsl(var(--primary-300)), hsl(var(--primary)), hsl(var(--primary-700)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -331,7 +384,9 @@
 
   /* ===== 分隔线 ===== */
   .divider {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-border to-transparent;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
   }
 
   /* ===== 动画类 ===== */
@@ -384,7 +439,7 @@
 @layer utilities {
   /* 文字颜色层级 */
   .text-primary {
-    color: hsl(var(--foreground));
+    color: hsl(var(--color-foreground));
   }
 
   .text-secondary {
@@ -412,7 +467,7 @@
   .border-gradient {
     position: relative;
     background: hsl(var(--surface-1));
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
   }
 
   .border-gradient::before {
