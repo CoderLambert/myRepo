@@ -1,0 +1,449 @@
+/* DarkUI Poster Design System - 设计令牌 */
+
+@theme {
+  /* ============================================
+   * 海报尺寸系统
+   * ============================================ */
+
+  /* 标准印刷尺寸 */
+  --poster-a4-width: 210mm;
+  --poster-a4-height: 297mm;
+  --poster-a3-width: 297mm;
+  --poster-a3-height: 420mm;
+
+  /* 数字媒体尺寸 */
+  --poster-square: 1080px;
+  --poster-story-width: 1080px;
+  --poster-story-height: 1920px;
+  --poster-banner-width: 1920px;
+  --poster-banner-height: 1080px;
+
+  /* ============================================
+   * 海报专用颜色
+   * ============================================ */
+
+  /* 海报背景渐变 */
+  --poster-gradient-dark: linear-gradient(
+    180deg,
+    hsl(240 10% 4%) 0%,
+    hsl(240 8% 7%) 50%,
+    hsl(240 6% 11%) 100%
+  );
+
+  --poster-gradient-purple: linear-gradient(
+    135deg,
+    hsl(255 87% 70%) 0%,
+    hsl(258 87% 61%) 50%,
+    hsl(262 71% 53%) 100%
+  );
+
+  --poster-gradient-ocean: linear-gradient(
+    135deg,
+    hsl(199 89% 54%) 0%,
+    hsl(245 72% 65%) 100%
+  );
+
+  --poster-gradient-fire: linear-gradient(
+    135deg,
+    hsl(38 92% 56%) 0%,
+    hsl(350 86% 61%) 100%
+  );
+
+  --poster-gradient-forest: linear-gradient(
+    135deg,
+    hsl(152 76% 47%) 0%,
+    hsl(172 67% 45%) 100%
+  );
+
+  --poster-gradient-midnight: linear-gradient(
+    180deg,
+    hsl(240 10% 4%) 0%,
+    hsl(255 87% 70% / 0.2) 100%
+  );
+
+  /* 海报表面层级 */
+  --poster-surface-dark: hsl(240 8% 7%);
+  --poster-surface-elevated: hsl(240 6% 11%);
+  --poster-surface-highlight: hsl(240 5% 16%);
+
+  /* 海报发光效果 */
+  --poster-glow-subtle: 0 0 40px -10px hsl(255 87% 70% / 0.3);
+  --poster-glow-medium: 0 0 60px -15px hsl(255 87% 70% / 0.5);
+  --poster-glow-intense: 0 0 80px -20px hsl(255 87% 70% / 0.7);
+
+  /* 海报边框渐变 */
+  --poster-border-gradient: linear-gradient(
+    135deg,
+    hsl(255 87% 70%),
+    hsl(258 87% 61%),
+    hsl(245 72% 65%)
+  );
+
+  /* ============================================
+   * 海报排版系统
+   * ============================================ */
+
+  /* 海报专用字体大小 */
+  --poster-text-hero: 4.5rem;      /* 72px - 主标题 */
+  --poster-text-display: 3rem;     /* 48px - 展示标题 */
+  --poster-text-headline: 2.25rem; /* 36px - 大标题 */
+  --poster-text-title: 1.875rem;   /* 30px - 标题 */
+  --poster-text-section: 1.5rem;   /* 24px - 章节标题 */
+  --poster-text-body: 1rem;        /* 16px - 正文 */
+  --poster-text-small: 0.875rem;   /* 14px - 小字 */
+  --poster-text-tiny: 0.75rem;     /* 12px - 辅助信息 */
+
+  /* 海报字重 */
+  --poster-font-thin: 200;
+  --poster-font-light: 300;
+  --poster-font-regular: 400;
+  --poster-font-medium: 500;
+  --poster-font-semibold: 600;
+  --poster-font-bold: 700;
+  --poster-font-extrabold: 800;
+  --poster-font-black: 900;
+
+  /* 海报行高 */
+  --poster-leading-hero: 1.1;
+  --poster-leading-tight: 1.25;
+  --poster-leading-normal: 1.5;
+  --poster-leading-relaxed: 1.625;
+
+  /* ============================================
+   * 海报间距系统
+   * ============================================ */
+
+  --poster-padding-sm: 1rem;      /* 16px */
+  --poster-padding-md: 1.5rem;    /* 24px */
+  --poster-padding-lg: 2rem;      /* 32px */
+  --poster-padding-xl: 3rem;      /* 48px */
+  --poster-padding-2xl: 4rem;     /* 64px */
+
+  --poster-gap-sm: 0.75rem;       /* 12px */
+  --poster-gap-md: 1rem;          /* 16px */
+  --poster-gap-lg: 1.5rem;        /* 24px */
+  --poster-gap-xl: 2rem;          /* 32px */
+  --poster-gap-2xl: 3rem;         /* 48px */
+
+  /* ============================================
+   * 海报圆角系统
+   * ============================================ */
+
+  --poster-radius-sm: 0.375rem;   /* 6px */
+  --poster-radius-md: 0.5rem;     /* 8px */
+  --poster-radius-lg: 0.75rem;    /* 12px */
+  --poster-radius-xl: 1rem;       /* 16px */
+  --poster-radius-2xl: 1.25rem;   /* 20px */
+  --poster-radius-3xl: 1.5rem;    /* 24px */
+  --poster-radius-full: 9999px;
+
+  /* ============================================
+   * 海报阴影系统
+   * ============================================ */
+
+  --poster-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --poster-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --poster-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --poster-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --poster-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+  /* 海报发光阴影 */
+  --poster-shadow-glow-sm: 0 0 20px -5px hsl(255 87% 70% / 0.4);
+  --poster-shadow-glow-md: 0 0 40px -10px hsl(255 87% 70% / 0.5);
+  --poster-shadow-glow-lg: 0 0 60px -15px hsl(255 87% 70% / 0.6);
+
+  /* ============================================
+   * 海报动画
+   * ============================================ */
+
+  --poster-duration-fast: 150ms;
+  --poster-duration-normal: 300ms;
+  --poster-duration-slow: 500ms;
+  --poster-duration-slower: 700ms;
+
+  --poster-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --poster-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --poster-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ============================================
+ * 海报基础样式类
+ * ============================================ */
+
+@layer components {
+  /* 海报容器基础样式 */
+  .poster-base {
+    position: relative;
+    background: var(--poster-gradient-dark);
+    border-radius: var(--poster-radius-xl);
+    overflow: hidden;
+    box-shadow: var(--poster-shadow-xl), var(--poster-glow-subtle);
+  }
+
+  /* 渐变文字 */
+  .poster-text-gradient {
+    background: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 98% / 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .poster-text-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(255 87% 77%),
+      hsl(255 87% 70%),
+      hsl(258 87% 61%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* 渐变边框容器 */
+  .poster-border-gradient {
+    position: relative;
+    background: var(--poster-surface-dark);
+    border-radius: var(--poster-radius-lg);
+  }
+
+  .poster-border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: var(--poster-border-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* 玻璃态效果 */
+  .poster-glass {
+    background: hsl(240 6% 11% / 0.6);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(240 5% 20% / 0.5);
+  }
+
+  /* 发光效果 */
+  .poster-glow {
+    position: relative;
+  }
+
+  .poster-glow::after {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(
+      circle at 50% 0%,
+      hsl(255 87% 70% / 0.3) 0%,
+      transparent 60%
+    );
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .poster-glow-subtle::after {
+    background: radial-gradient(
+      circle at 50% 0%,
+      hsl(255 87% 70% / 0.15) 0%,
+      transparent 60%
+    );
+  }
+
+  .poster-glow-intense::after {
+    background: radial-gradient(
+      circle at 50% 0%,
+      hsl(255 87% 70% / 0.5) 0%,
+      transparent 60%
+    );
+    filter: blur(60px);
+  }
+
+  /* 海报卡片 */
+  .poster-card {
+    background: var(--poster-surface-dark);
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--poster-radius-xl);
+    padding: var(--poster-padding-lg);
+    box-shadow: var(--poster-shadow-md);
+    transition: transform var(--poster-duration-normal) var(--poster-ease-out),
+                box-shadow var(--poster-duration-normal) var(--poster-ease-out);
+  }
+
+  .poster-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--poster-shadow-xl), var(--poster-shadow-glow-md);
+  }
+
+  /* 海报徽章 */
+  .poster-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--poster-text-small);
+    font-weight: var(--poster-font-medium);
+    border-radius: var(--poster-radius-full);
+    transition: all var(--poster-duration-fast) var(--poster-ease-out);
+  }
+
+  .poster-badge-primary {
+    background: hsl(255 87% 70% / 0.15);
+    color: hsl(255 87% 70%);
+    border: 1px solid hsl(255 87% 70% / 0.3);
+  }
+
+  .poster-badge-success {
+    background: hsl(152 76% 47% / 0.15);
+    color: hsl(152 76% 47%);
+    border: 1px solid hsl(152 76% 47% / 0.3);
+  }
+
+  .poster-badge-warning {
+    background: hsl(38 92% 56% / 0.15);
+    color: hsl(38 92% 56%);
+    border: 1px solid hsl(38 92% 56% / 0.3);
+  }
+
+  .poster-badge-error {
+    background: hsl(350 86% 61% / 0.15);
+    color: hsl(350 86% 61%);
+    border: 1px solid hsl(350 86% 61% / 0.3);
+  }
+
+  /* 脉冲动画 */
+  .poster-badge-pulse {
+    animation: poster-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes poster-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(255 87% 70% / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px hsl(255 87% 70% / 0);
+    }
+  }
+
+  /* 渐变分隔线 */
+  .poster-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(240 5% 20%) 20%,
+      hsl(240 5% 20%) 80%,
+      transparent 100%
+    );
+    margin: var(--poster-gap-xl) 0;
+  }
+
+  .poster-divider-gradient {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(255 87% 70%) 20%,
+      hsl(258 87% 61%) 80%,
+      transparent 100%
+    );
+  }
+
+  /* 海报图片容器 */
+  .poster-image-container {
+    position: relative;
+    border-radius: var(--poster-radius-lg);
+    overflow: hidden;
+  }
+
+  .poster-image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: var(--poster-border-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .poster-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 海报按钮 */
+  .poster-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: var(--poster-text-base);
+    font-weight: var(--poster-font-semibold);
+    border-radius: var(--poster-radius-lg);
+    transition: all var(--poster-duration-normal) var(--poster-ease-out);
+    cursor: pointer;
+    border: none;
+  }
+
+  .poster-btn-primary {
+    background: var(--poster-gradient-purple);
+    color: white;
+    box-shadow: var(--poster-shadow-glow-sm);
+  }
+
+  .poster-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--poster-shadow-glow-md);
+  }
+
+  .poster-btn-glow {
+    background: var(--poster-gradient-purple);
+    color: white;
+    box-shadow: var(--poster-shadow-glow-md);
+    animation: poster-glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes poster-glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px -5px hsl(255 87% 70% / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 40px -5px hsl(255 87% 70% / 0.8);
+    }
+  }
+
+  /* 海报网格 */
+  .poster-grid {
+    display: grid;
+    gap: var(--poster-gap-lg);
+  }
+
+  .poster-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poster-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .poster-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    .poster-grid-2,
+    .poster-grid-3,
+    .poster-grid-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
