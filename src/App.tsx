@@ -186,21 +186,34 @@ function App() {
           </div>
 
           {/* 按钮展示 */}
-          <div className="card mb-8">
+          <div className="card mb-8 border-gradient">
             <h3 className="text-lg font-semibold text-foreground mb-6 flex items-center gap-2">
               <Box className="w-5 h-5 text-primary" />
               按钮组件
             </h3>
             <div className="flex flex-wrap gap-4">
               <button className="btn-primary">
-                主要按钮
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <span>主要按钮</span>
+                <ArrowRight className="w-4 h-4 btn-icon-arrow" />
               </button>
               <button className="btn-secondary">次要按钮</button>
               <button className="btn-ghost">幽灵按钮</button>
-              <button className="btn-glow">发光按钮</button>
+              <button className="btn-glow">
+                <Sparkles className="w-4 h-4 mr-2" />
+                发光按钮
+              </button>
               <button className="btn-primary" disabled>
                 禁用状态
+              </button>
+            </div>
+
+            {/* 尺寸变体展示 */}
+            <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-border/50">
+              <button className="btn-primary btn-sm">小按钮</button>
+              <button className="btn-secondary">默认</button>
+              <button className="btn-primary btn-lg">
+                大按钮
+                <ArrowRight className="w-5 h-5 btn-icon-arrow" />
               </button>
             </div>
           </div>
